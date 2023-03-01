@@ -2,7 +2,7 @@
   "name": "@openmrs/esm-app-shell",
   "version": "4.1.0",
   "license": "MPL-2.0",
-  "main": "dist/openmrs.js",
+  "main": "dist/openmrs-$npm_package_version.js",
   "scripts": {
     "start": "npm run watch",
     "test": "jest --passWithNoTests",

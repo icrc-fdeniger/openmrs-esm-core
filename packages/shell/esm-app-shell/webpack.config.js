@@ -70,7 +70,7 @@ module.exports = (env, argv = {}) => {
   return {
     entry: resolve(__dirname, "src/index.ts"),
     output: {
-      filename: "openmrs.js",
+      filename: `openmrs-${version}.js`,
       chunkFilename: "[chunkhash].js",
       path: resolve(__dirname, outDir),
       publicPath: "",
@@ -221,7 +221,7 @@ module.exports = (env, argv = {}) => {
       }),
       isProd &&
         new MiniCssExtractPlugin({
-          filename: "openmrs.css",
+          filename: `openmrs-${version}.css`,
         }),
       new DefinePlugin({
         "process.env.BUILD_VERSION": JSON.stringify(`${version}-${timestamp}`),
@@ -234,7 +234,7 @@ module.exports = (env, argv = {}) => {
       openmrsOffline &&
         new InjectManifest({
           swSrc: resolve(__dirname, "./src/service-worker/index.ts"),
-          swDest: "service-worker.js",
+          swDest: `service-worker-${version}.js`,
           maximumFileSizeToCacheInBytes:
             mode === production ? undefined : Number.MAX_SAFE_INTEGER,
           additionalManifestEntries: [
